@@ -172,6 +172,11 @@ new GeneratorConfig(...).columnConfig(columnConfig->{
         <th align="left">说明</th>
     </tr>
     <tr align="center">
+        <td>columnPrefixes</td>
+        <td>空</td>
+        <td align="left">列前缀，可进行列字段忽略前缀</td>
+    </tr>
+    <tr align="center">
         <td>versionColumn</td>
         <td>空</td>
         <td align="left">指定乐观锁列名</td>
