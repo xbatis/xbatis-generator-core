@@ -1,6 +1,6 @@
 package cn.mybatis.mp.generator.core;
 
-public interface IService<T,ID> {
+public interface IService<T, ID> {
 
     T getById(ID id);
 

@@ -7,7 +7,6 @@ import db.sql.api.DbType;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
-
 import javax.sql.DataSource;
 
 public class Test {
@@ -111,10 +110,6 @@ public class Test {
 
     }
 
-    @org.junit.jupiter.api.Test
-    public void h2TestCase(){
-        h2Test();
-    }
 
     private static void h2Test() {
 
@@ -143,5 +138,10 @@ public class Test {
         mysqlTest();
         //oracleTest();
         System.out.println(System.currentTimeMillis() - start);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void h2TestCase() {
+        h2Test();
     }
 }

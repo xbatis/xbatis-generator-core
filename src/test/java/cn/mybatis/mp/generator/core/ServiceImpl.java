@@ -4,7 +4,7 @@ import cn.mybatis.mp.core.mybatis.mapper.MybatisMapper;
 
 import java.io.Serializable;
 
-public abstract class ServiceImpl<T,ID> implements IService<T,ID> {
+public abstract class ServiceImpl<T, ID> implements IService<T, ID> {
 
     protected abstract MybatisMapper<T> getMapper();
 
