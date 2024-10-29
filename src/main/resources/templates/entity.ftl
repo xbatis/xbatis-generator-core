@@ -13,9 +13,11 @@ import io.swagger.annotations.ApiModelProperty;
 </#if>
 
 /**
+<#if entityInfo.tableInfo.remarks?? && entityInfo.tableInfo.remarks != "">
  * <p>
  * ${entityInfo.tableInfo.remarks!}
  * </p>
+</#if>
  *
  * @author ${author!}
  * @since ${date}
