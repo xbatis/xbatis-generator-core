@@ -21,7 +21,8 @@ import io.swagger.annotations.ApiModelProperty;
  * @since ${date}
  */
 <#if entityConfig.isLombok()>
-@Data
+@Setter
+@Getter
 @EqualsAndHashCode<#if entityConfig.getSuperClass()?? && entityConfig.getSuperClass() != ''>(callSuper = true)</#if>
 @ToString<#if entityConfig.getSuperClass()?? && entityConfig.getSuperClass() != ''>(callSuper = true)</#if>
 <#if entityConfig.isLombokBuilder()>
@@ -29,7 +30,7 @@ import io.swagger.annotations.ApiModelProperty;
 @NoArgsConstructor
 </#if>
 </#if>
-<#if entityConfig.isSwagger()>
+<#if entityConfig.isSwagger() && entityInfo.tableInfo.remarks?? && entityInfo.tableInfo.remarks != "">
 <#if generatorConfig.getSwaggerVersion() == 3>
 @Schema(name = "${entityInfo.tableInfo.remarks!}")
 <#else>
@@ -50,7 +51,7 @@ public class ${entityInfo.buildClassFullName(entityConfig)} {
      */
 </#if>
 <#if field.columnInfo.primaryKey>
-<#if entityConfig.isSwagger()>
+<#if entityConfig.isSwagger() && field.remarks?? && field.remarks != "">
 <#if generatorConfig.getSwaggerVersion() == 3>
     @Schema(description = "${field.remarks!}")
 <#else>
@@ -72,7 +73,7 @@ public class ${entityInfo.buildClassFullName(entityConfig)} {
 <#elseif field.columnInfo.isLogicDelete()>
     ${entityConfig.getLogicDeleteCode()!}
 </#if>
-<#if entityConfig.isSwagger()>
+<#if entityConfig.isSwagger() && field.remarks?? && field.remarks != "">
 <#if generatorConfig.getSwaggerVersion() == 3>
     @Schema(description = "${field.remarks!}")
 <#else>

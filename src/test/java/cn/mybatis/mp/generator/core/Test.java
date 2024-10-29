@@ -83,6 +83,7 @@ public class Test {
                     entityConfig.lombok(true)
                             .lombokBuilder(true)
                             .serial(false)
+                            .swagger(true)
                             .superClass(Test.class);
                     entityConfig.swagger(true).packageName("model");
                     entityConfig.logicDeleteCode("@LogicDelete(beforeValue=\"0\",afterValue=\"1\",deleteTimeField=\"create_time\")");

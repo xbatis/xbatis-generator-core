@@ -6,7 +6,7 @@ public final class StringCodeSafeUtil {
         if (str == null || str.isEmpty()) {
             return "";
         }
-        return str.replaceAll("\r|\n|\t", "；");
+        return str.replaceAll("\r|\n|\t", "；").trim();
     }
 
     public static void main(String[] args) {
