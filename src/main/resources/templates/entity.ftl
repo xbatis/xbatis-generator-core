@@ -112,9 +112,12 @@ public class ${entityInfo.buildClassFullName(entityConfig)} {
     @Override
     public String toString() {
         return "${entityInfo.name}{" +
+    <#if entityConfig.hasSuperClass()>
+        " super = " +super.toString() +
+    </#if>
     <#list entityInfo.fieldInfoList as field>
         <#if field_index==0>
-            "${field.name} = " + ${field.name} +
+            <#if entityConfig.hasSuperClass()>", <#else >"</#if>${field.name} = " + ${field.name} +
         <#else>
             ", ${field.name} = " + ${field.name} +
         </#if>
