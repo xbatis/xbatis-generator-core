@@ -2,9 +2,9 @@ package cn.mybatis.mp.generator.core.database.meta;
 
 import cn.mybatis.mp.core.util.NamingUtil;
 import cn.mybatis.mp.generator.core.config.*;
+import cn.mybatis.mp.generator.core.util.ClassUtils;
 import cn.mybatis.mp.generator.core.util.GeneratorUtil;
 import cn.mybatis.mp.generator.core.util.PathUtils;
-import cn.mybatis.mp.generator.core.util.ClassUtils;
 import db.sql.api.impl.tookit.Objects;
 import lombok.Getter;
 import lombok.ToString;

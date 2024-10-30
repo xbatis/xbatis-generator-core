@@ -153,8 +153,14 @@ public class TableMetaDataQuery {
                 columnInfo.setPrimaryKey(primaryKeys.contains(columnInfo.getName()));
 
                 columnInfo.setTypeName(resultSet.getString("TYPE_NAME"));
-                columnInfo.setJdbcType(JdbcType.forCode(resultSet.getInt("DATA_TYPE")));
-                columnInfo.setLength(resultSet.getInt("COLUMN_SIZE"));
+
+                JdbcType jdbcType = JdbcType.forCode(resultSet.getInt("DATA_TYPE"));
+                int length = resultSet.getInt("COLUMN_SIZE");
+                if (jdbcType == JdbcType.CHAR && length != 1) {
+                    jdbcType = JdbcType.VARCHAR;
+                }
+                columnInfo.setJdbcType(jdbcType);
+                columnInfo.setLength(length);
                 columnInfo.setScale(resultSet.getInt("DECIMAL_DIGITS"));
 
                 String remarks = resultSet.getString("REMARKS");

@@ -23,13 +23,18 @@ import io.swagger.annotations.ApiModelProperty;
  * @since ${date}
  */
 <#if entityConfig.isLombok()>
-@Setter
-@Getter
-@EqualsAndHashCode<#if entityConfig.getSuperClass()?? && entityConfig.getSuperClass() != ''>(callSuper = true)</#if>
-@ToString<#if entityConfig.getSuperClass()?? && entityConfig.getSuperClass() != ''>(callSuper = true)</#if>
+@Data
 <#if entityConfig.isLombokBuilder()>
-<#if entityConfig.getSuperClass()?? && entityConfig.getSuperClass() != ''>@SuperBuilder<#else >@Builder</#if>
+    <#if entityConfig.hasSuperClass()>
+@SuperBuilder
+    <#else>
+@Builder
+    </#if>
 @NoArgsConstructor
+</#if>
+<#if entityConfig.hasSuperClass()>
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 </#if>
 </#if>
 <#if entityConfig.isSwagger() && entityInfo.tableInfo.remarks?? && entityInfo.tableInfo.remarks != "">

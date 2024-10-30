@@ -62,6 +62,7 @@ public class Test {
                 //.baseFilePath(System.getProperty("user.dir") + "/xx")
                 //.javaPath("src/main/java")
                 //.resourcePath("src/main/resources")
+                .fileCover(true)
                 .baseFilePath(System.getProperty("user.dir") + "/target/generated-code")
                 .basePackage("com.test")
                 .swaggerVersion(3)
@@ -84,7 +85,8 @@ public class Test {
                             .lombokBuilder(true)
                             .serial(false)
                             .swagger(true)
-                            .superClass(Test.class);
+                           .superClass(Test.class)
+                    ;
                     entityConfig.swagger(true).packageName("model");
                     entityConfig.logicDeleteCode("@LogicDelete(beforeValue=\"0\",afterValue=\"1\",deleteTimeField=\"create_time\")");
                 })

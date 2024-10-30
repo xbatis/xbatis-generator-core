@@ -1,9 +1,9 @@
 package cn.mybatis.mp.generator.core.template;
 
 import cn.mybatis.mp.generator.core.config.GeneratorConfig;
-import cn.mybatis.mp.generator.core.util.PathUtils;
 import cn.mybatis.mp.generator.core.database.meta.EntityInfo;
 import cn.mybatis.mp.generator.core.util.GeneratorUtil;
+import cn.mybatis.mp.generator.core.util.PathUtils;
 
 import java.io.File;
 import java.time.LocalDate;

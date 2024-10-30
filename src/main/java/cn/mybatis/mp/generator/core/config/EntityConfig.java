@@ -298,4 +298,8 @@ public class EntityConfig {
     public boolean isAlwaysAnnotation() {
         return alwaysAnnotation;
     }
+
+    public boolean hasSuperClass() {
+        return superClass != null && !superClass.isEmpty();
+    }
 }

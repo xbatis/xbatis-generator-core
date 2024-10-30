@@ -2,11 +2,11 @@ package cn.mybatis.mp.generator.core;
 
 
 import cn.mybatis.mp.generator.core.config.GeneratorConfig;
+import cn.mybatis.mp.generator.core.database.meta.EntityInfo;
 import cn.mybatis.mp.generator.core.database.meta.TableInfo;
 import cn.mybatis.mp.generator.core.database.meta.TableMetaDataQuery;
-import cn.mybatis.mp.generator.core.template.engine.FreemarkerTemplateEngine;
-import cn.mybatis.mp.generator.core.database.meta.EntityInfo;
 import cn.mybatis.mp.generator.core.template.ITemplateBuilder;
+import cn.mybatis.mp.generator.core.template.engine.FreemarkerTemplateEngine;
 import cn.mybatis.mp.generator.core.template.engine.TemplateEngine;
 import cn.mybatis.mp.generator.core.util.RuntimeUtils;
 import lombok.extern.slf4j.Slf4j;
