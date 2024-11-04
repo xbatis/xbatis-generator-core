@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
     </#if>
 </#if>
 
+<#if entityConfig.isComment()>
 /**
 <#if entityInfo.tableInfo.remarks?? && entityInfo.tableInfo.remarks != "">
  * <p>
@@ -22,6 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @author ${author!}
  * @since ${date}
  */
+</#if>
 <#if entityConfig.isLombok()>
 @Data
 <#if entityConfig.isLombokBuilder()>
@@ -52,7 +54,7 @@ public class ${entityInfo.buildClassFullName(entityConfig)} {
 
 </#if>
 <#list entityInfo.fieldInfoList as field>
-<#if field.remarks?? && field.remarks != "">
+<#if entityConfig.isComment() && field.remarks?? && field.remarks != "">
     /**
      * ${field.remarks!}
      */

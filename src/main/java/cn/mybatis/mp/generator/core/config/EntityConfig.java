@@ -48,6 +48,11 @@ public class EntityConfig {
     private boolean lombok = true;
 
     /**
+     * 是否开启注释
+     */
+    private boolean comment = true;
+
+    /**
      * 是否使用 lombok @Builder
      */
     private boolean lombokBuilder = false;
@@ -142,6 +147,16 @@ public class EntityConfig {
      */
     public EntityConfig serial(boolean enable) {
         this.serial = enable;
+        return this;
+    }
+
+    /**
+     * 设置是否生成注释
+     * @param comment
+     * @return
+     */
+    public EntityConfig comment(boolean comment) {
+        this.comment = comment;
         return this;
     }
 
@@ -301,5 +316,9 @@ public class EntityConfig {
 
     public boolean hasSuperClass() {
         return superClass != null && !superClass.isEmpty();
+    }
+
+    public boolean isComment() {
+        return comment;
     }
 }

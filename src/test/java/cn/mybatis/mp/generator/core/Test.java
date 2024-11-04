@@ -82,6 +82,7 @@ public class Test {
                 })
                 .entityConfig(entityConfig -> {
                     entityConfig.lombok(true)
+                            .comment(true)
                             .lombokBuilder(true)
                             .serial(false)
                             .swagger(true)

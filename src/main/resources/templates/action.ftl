@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiParam;
     </#if>
 </#if>
 
+<#if actionConfig.isComment()>
 /**
  * <p>
  * ${entityInfo.tableInfo.remarks!} 控制器
@@ -23,6 +24,7 @@ import io.swagger.annotations.ApiParam;
  * @author ${author!}
  * @since ${date}
  */
+</#if>
 @${controllerAnnotationName}
 @${requestMappingAnnotationName}("/${util.firstToLower(entityInfo.name)}")
 <#if actionConfig.isSwagger()>
@@ -40,6 +42,11 @@ public class ${entityInfo.buildActionClassFullName(actionConfig)} {
 
 </#if>
 <#if actionConfig.isEnableGet()  && entityInfo.hasId()>
+    <#if actionConfig.isComment()>
+    /**
+     * 根据ID查询
+     */
+    </#if>
 <#if generatorConfig.getContainerType().is("solon")>
     @Get
 </#if>
@@ -64,7 +71,12 @@ public class ${entityInfo.buildActionClassFullName(actionConfig)} {
 
 </#if>
 <#if actionConfig.isEnableSave()>
-<#if generatorConfig.getContainerType().is("solon")>
+    <#if actionConfig.isComment()>
+    /**
+     * 新增
+     */
+    </#if>
+    <#if generatorConfig.getContainerType().is("solon")>
     @Post
 </#if>
     @${postMappingAnnotationName}("${actionConfig.getSaveUriPath()}")
@@ -82,6 +94,11 @@ public class ${entityInfo.buildActionClassFullName(actionConfig)} {
 
 </#if>
 <#if actionConfig.isEnableUpdate()>
+    <#if actionConfig.isComment()>
+    /**
+     * 修改
+     */
+    </#if>
 <#if generatorConfig.getContainerType().is("solon")>
     @Post
 </#if>
@@ -100,6 +117,11 @@ public class ${entityInfo.buildActionClassFullName(actionConfig)} {
 
 </#if>
 <#if actionConfig.isEnableDelete() && entityInfo.hasId()>
+    <#if actionConfig.isComment()>
+    /**
+     * 根据ID删除
+     */
+    </#if>
 <#if generatorConfig.getContainerType().is("solon")>
     @Delete
 </#if>
@@ -124,6 +146,11 @@ public class ${entityInfo.buildActionClassFullName(actionConfig)} {
 
 </#if>
 <#if actionConfig.isEnableFind()>
+    <#if actionConfig.isComment()>
+    /**
+     * 分页查询
+     */
+    </#if>
 <#if generatorConfig.getContainerType().is("solon")>
     @Get
 </#if>

@@ -17,6 +17,7 @@ public class GeneratorConfig {
      * 忽略表
      */
     private final boolean ignoreTable = false;
+
     private final List<Class<? extends ITemplateBuilder>> templateBuilders = new ArrayList<>();
     /**
      * 数据库配置

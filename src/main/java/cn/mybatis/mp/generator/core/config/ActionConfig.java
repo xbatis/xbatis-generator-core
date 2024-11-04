@@ -9,6 +9,12 @@ public class ActionConfig {
      * 是否启用
      */
     private boolean enable = true;
+
+    /**
+     * 是否开启注释
+     */
+    private boolean comment = true;
+
     /**
      * 控制器父类
      */
@@ -107,6 +113,16 @@ public class ActionConfig {
      */
     public ActionConfig enable(boolean enable) {
         this.enable = enable;
+        return this;
+    }
+
+    /**
+     * 设置是否生成注释
+     * @param comment
+     * @return
+     */
+    public ActionConfig comment(boolean comment) {
+        this.comment = comment;
         return this;
     }
 
@@ -322,5 +338,9 @@ public class ActionConfig {
             return entityInfo.getServiceImplName();
         }
         throw new RuntimeException("service层未开启");
+    }
+
+    public boolean isComment() {
+        return comment;
     }
 }
