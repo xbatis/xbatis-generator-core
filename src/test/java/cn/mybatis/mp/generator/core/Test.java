@@ -82,7 +82,7 @@ public class Test {
                 })
                 .entityConfig(entityConfig -> {
                     entityConfig.lombok(true)
-                            .comment(true)
+                            .comment(false)
                             .lombokBuilder(true)
                             .serial(false)
                             .swagger(true)
@@ -102,6 +102,7 @@ public class Test {
                 })
                 .actionConfig(actionConfig -> {
                     actionConfig
+                            .comment(false)
                             .enableSave(true)
                             .enableUpdate(true)
                             .enableFind(true)
