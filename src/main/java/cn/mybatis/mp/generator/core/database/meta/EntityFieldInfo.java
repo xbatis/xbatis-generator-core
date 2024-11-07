@@ -39,7 +39,6 @@ public class EntityFieldInfo {
         this.entityInfo = entityInfo;
         this.columnInfo = columnInfo;
         String columnName = columnInfo.getName();
-
         String handledTableName = NamingUtil.removePrefix(columnName, generatorConfig.getColumnConfig().getColumnPrefixes());
         hasIgnorePrefix = handledTableName != columnName;
 
@@ -68,7 +67,7 @@ public class EntityFieldInfo {
 
     public String buildTableField(EntityConfig entityConfig) {
         StringBuilder stringBuilder = new StringBuilder("@TableField(");
-        if (alwaysAnnotation || hasIgnorePrefix) {
+        if (alwaysAnnotation || hasIgnorePrefix || !this.getColumnInfo().getName().equals(NamingUtil.camelToUnderline(this.name))) {
             stringBuilder.append("value =\"").append(this.getColumnInfo().getName()).append("\",");
         }
         if (!select) {
