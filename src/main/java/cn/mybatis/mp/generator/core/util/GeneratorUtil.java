@@ -146,6 +146,11 @@ public class GeneratorUtil {
         if (generatorConfig.getMapperConfig().isMapperAnnotation()) {
             classList.add(Mapper.class.getName());
         }
+        if(entityInfo.hasMultiId()){
+            entityInfo.getIdFieldInfoList().forEach(item->{
+                classList.add(item.getType().getName());
+            });
+        }
         classList.add(entityInfo.getEntityPackage() + "." + entityInfo.getName());
         return buildImports(classList);
     }
@@ -162,7 +167,11 @@ public class GeneratorUtil {
         if (generatorConfig.getDaoConfig().getSuperClass() != null) {
             classList.add(generatorConfig.getDaoConfig().getSuperClass());
         }
-
+        if(entityInfo.hasMultiId()){
+            entityInfo.getIdFieldInfoList().forEach(item->{
+                classList.add(item.getType().getName());
+            });
+        }
         classList.add(entityInfo.getEntityPackage() + "." + entityInfo.getName());
         if (entityInfo.getIdFieldInfo() != null) {
             classList.add(entityInfo.getIdFieldInfo().getType().getName());
@@ -182,7 +191,11 @@ public class GeneratorUtil {
         if (generatorConfig.getDaoImplConfig().getSuperClass() != null) {
             classList.add(generatorConfig.getDaoImplConfig().getSuperClass());
         }
-
+        if(entityInfo.hasMultiId()){
+            entityInfo.getIdFieldInfoList().forEach(item->{
+                classList.add(item.getType().getName());
+            });
+        }
         classList.add(entityInfo.getEntityPackage() + "." + entityInfo.getName());
         if (entityInfo.getIdFieldInfo() != null) {
             classList.add(entityInfo.getIdFieldInfo().getType().getName());
@@ -295,7 +308,11 @@ public class GeneratorUtil {
         if (generatorConfig.getActionConfig().getReturnClass() != null) {
             classList.add(generatorConfig.getActionConfig().getReturnClass());
         }
-
+        if(entityInfo.hasMultiId() &&(generatorConfig.getActionConfig().isEnableGet()|| generatorConfig.getActionConfig().isEnableDelete())){
+            entityInfo.getIdFieldInfoList().forEach(item->{
+                classList.add(item.getType().getName());
+            });
+        }
         classList.add(entityInfo.getEntityPackage() + "." + entityInfo.getName());
 
         if (entityInfo.getIdFieldInfo() != null) {
