@@ -9,7 +9,7 @@
 <dependency>
     <groupId>cn.mybatis-mp</groupId>
     <artifactId>mybatis-mp-generator-core</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.3-RC</version>
 </dependency>
 ```
 
