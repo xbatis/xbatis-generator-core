@@ -6,10 +6,7 @@ import lombok.Getter;
 import org.apache.ibatis.type.JdbcType;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.OffsetDateTime;
-import java.time.OffsetTime;
+import java.time.*;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -110,7 +107,7 @@ public class EntityConfig {
         typeMapping.put(JdbcType.CHAR, Character.class);
         typeMapping.put(JdbcType.VARCHAR, String.class);
         typeMapping.put(JdbcType.LONGVARCHAR, String.class);
-        typeMapping.put(JdbcType.DATE, LocalDateTime.class);
+        typeMapping.put(JdbcType.DATE, LocalDate.class);
         typeMapping.put(JdbcType.TIME, LocalTime.class);
         typeMapping.put(JdbcType.TIMESTAMP, LocalDateTime.class);
         typeMapping.put(JdbcType.BINARY, byte[].class);
