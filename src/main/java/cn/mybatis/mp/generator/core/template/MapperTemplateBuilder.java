@@ -57,6 +57,7 @@ public class MapperTemplateBuilder extends AbstractTemplateBuilder {
         data.put("daoImplConfig", generatorConfig.getDaoImplConfig());
         data.put("serviceConfig", generatorConfig.getServiceConfig());
         data.put("serviceImplConfig", generatorConfig.getServiceImplConfig());
+        data.put("actionConfig", generatorConfig.getActionConfig());
         data.put("generatorConfig", generatorConfig);
         data.put("containerType", generatorConfig.getContainerType());
         return data;

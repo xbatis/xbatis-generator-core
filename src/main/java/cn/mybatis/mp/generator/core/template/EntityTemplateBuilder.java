@@ -59,6 +59,7 @@ public class EntityTemplateBuilder extends AbstractTemplateBuilder {
         data.put("daoImplConfig", generatorConfig.getDaoImplConfig());
         data.put("serviceConfig", generatorConfig.getServiceConfig());
         data.put("serviceImplConfig", generatorConfig.getServiceImplConfig());
+        data.put("actionConfig", generatorConfig.getActionConfig());
         data.put("generatorConfig", generatorConfig);
         return data;
     }
