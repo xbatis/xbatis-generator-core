@@ -7,6 +7,10 @@ import cn.mybatis.mp.generator.core.util.GeneratorUtil;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Getter
 @ToString
 public class EntityFieldInfo {
@@ -80,6 +84,12 @@ public class EntityFieldInfo {
             stringBuilder.append("defaultValue = \"")
                     .append(this.getColumnInfo().getDefaultValue().replace("\"", "\\\""))
                     .append("\",");
+
+            if ((this.type == LocalDate.class || this.type == LocalDateTime.class || this.type == Date.class) && (this.getName().equals("updateTime") || this.getName().equals("updateDate") || this.getName().equals("updatedAt") || this.getName().equals("updateAt"))) {
+                stringBuilder.append("updateDefaultValue = \"")
+                        .append(this.getColumnInfo().getDefaultValue().replace("\"", "\\\""))
+                        .append("\",");
+            }
         }
         stringBuilder.deleteCharAt(stringBuilder.length() - 1);
 
