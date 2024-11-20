@@ -21,14 +21,14 @@ public enum NamingStrategy {
      * 获取名字
      *
      * @param sourceName     原始名字
-     * @param firstUpperCase 首字母大小写
+     * @param firstLowerCase 首字母小写
      * @return
      */
-    public String getName(String sourceName, boolean firstUpperCase) {
+    public String getName(String sourceName, boolean firstLowerCase) {
         if (this == NO_CHANGE) {
             return sourceName;
         }
         sourceName = NamingUtil.underlineToCamel(sourceName);
-        return firstUpperCase ? NamingUtil.firstToLower(sourceName) : sourceName;
+        return firstLowerCase ? NamingUtil.firstToLower(sourceName) : sourceName;
     }
 }

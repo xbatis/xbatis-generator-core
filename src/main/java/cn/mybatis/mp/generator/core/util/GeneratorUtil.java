@@ -49,7 +49,7 @@ public class GeneratorUtil {
     public static String getEntityFieldName(GeneratorConfig generatorConfig, String columnName) {
         EntityConfig entityConfig = generatorConfig.getEntityConfig();
         if (entityConfig.getFieldNameConverter() == null) {
-            return entityConfig.getFieldNamingStrategy().getName(columnName, false);
+            return entityConfig.getFieldNamingStrategy().getName(columnName, true);
         }
         return entityConfig.getFieldNameConverter().apply(columnName);
     }
