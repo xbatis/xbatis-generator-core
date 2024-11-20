@@ -66,7 +66,9 @@ public class EntityFieldInfo {
                 || hasIgnorePrefix
                 || !select
                 || !update
-                || (entityConfig.isDefaultValueEnable() && this.getColumnInfo().getDefaultValue() != null);
+                || (entityConfig.isDefaultValueEnable() && this.getColumnInfo().getDefaultValue() != null)
+                || !this.getColumnInfo().getName().equals(NamingUtil.camelToUnderline(this.name))
+                ;
     }
 
     public String buildTableField(EntityConfig entityConfig) {
