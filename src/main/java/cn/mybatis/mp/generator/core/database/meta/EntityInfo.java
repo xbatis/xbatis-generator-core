@@ -14,6 +14,8 @@
 
 package cn.mybatis.mp.generator.core.database.meta;
 
+import cn.mybatis.mp.core.mybatis.mapper.BasicMapper;
+import cn.mybatis.mp.core.mybatis.mapper.MybatisMapper;
 import cn.mybatis.mp.core.util.NamingUtil;
 import cn.mybatis.mp.generator.core.config.*;
 import cn.mybatis.mp.generator.core.util.ClassUtils;
@@ -76,8 +78,13 @@ public class EntityInfo {
 
         this.entityPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getEntityConfig().getPackageName());
 
-        this.mapperName = this.name + generatorConfig.getMapperConfig().getSuffix();
-        this.mapperPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getMapperConfig().getPackageName());
+        if (!generatorConfig.getMapperConfig().isEnable() && generatorConfig.getMapperConfig().getSuperClass().equals(MybatisMapper.class.getName())) {
+            this.mapperName = BasicMapper.class.getSimpleName();
+            this.mapperPackage = BasicMapper.class.getPackage().getName();
+        } else {
+            this.mapperName = this.name + generatorConfig.getMapperConfig().getSuffix();
+            this.mapperPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getMapperConfig().getPackageName());
+        }
 
         this.daoName = this.name + generatorConfig.getDaoConfig().getSuffix();
         this.daoPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getDaoConfig().getPackageName());

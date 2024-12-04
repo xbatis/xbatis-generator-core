@@ -32,21 +32,23 @@ public class ${entityInfo.buildServiceImplClassFullName(serviceConfig,serviceImp
         return this.${util.firstToLower(entityInfo.mapperName)};
     }
 
+    <#if serviceImplConfig.isGenChainMethod()>
     private QueryChain<${entityInfo.name}> queryChain() {
-        return QueryChain.of(${util.firstToLower(serviceImplConfig.mapperClassName(entityInfo))});
+        return QueryChain.of(${util.firstToLower(serviceImplConfig.mapperClassName(entityInfo))}<#if !mapperConfig.isEnable()> , ${entityInfo.name}.class</#if>);
     }
 
     private UpdateChain updateChain() {
-        return UpdateChain.of(${util.firstToLower(serviceImplConfig.mapperClassName(entityInfo))});
+        return UpdateChain.of(${util.firstToLower(serviceImplConfig.mapperClassName(entityInfo))}<#if !mapperConfig.isEnable()> , ${entityInfo.name}.class</#if>);
     }
 
     private InsertChain insertChain(){
-        return InsertChain.of(${util.firstToLower(serviceImplConfig.mapperClassName(entityInfo))});
+        return InsertChain.of(${util.firstToLower(serviceImplConfig.mapperClassName(entityInfo))}<#if !mapperConfig.isEnable()> , ${entityInfo.name}.class</#if>);
     }
 
     private DeleteChain deleteChain(){
-        return DeleteChain.of(${util.firstToLower(serviceImplConfig.mapperClassName(entityInfo))});
+        return DeleteChain.of(${util.firstToLower(serviceImplConfig.mapperClassName(entityInfo))}<#if !mapperConfig.isEnable()> , ${entityInfo.name}.class</#if>);
     }
 
+    </#if>
 </#if>
 }

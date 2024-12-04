@@ -42,6 +42,11 @@ public class ServiceImplConfig {
      * 注入Mapper
      */
     private boolean injectMapper = false;
+
+    /**
+     * 是否生成XXChain方法
+     */
+    private boolean genChainMethod = true;
     /**
      * service实现类包名
      */
@@ -97,6 +102,11 @@ public class ServiceImplConfig {
      */
     public ServiceImplConfig injectMapper(boolean injectMapper) {
         this.injectMapper = injectMapper;
+        return this;
+    }
+
+    public ServiceImplConfig setGenChainMethod(boolean genChainMethod) {
+        this.genChainMethod = genChainMethod;
         return this;
     }
 

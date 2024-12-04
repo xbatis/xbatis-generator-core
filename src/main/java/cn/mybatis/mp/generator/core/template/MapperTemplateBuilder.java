@@ -32,6 +32,11 @@ public class MapperTemplateBuilder extends AbstractTemplateBuilder {
     }
 
     @Override
+    public boolean enable() {
+        return generatorConfig.getMapperConfig().isEnable();
+    }
+
+    @Override
     public String targetFilePath() {
         return PathUtils.buildFilePath(
                 generatorConfig.getBaseFilePath(),

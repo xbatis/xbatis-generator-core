@@ -21,6 +21,11 @@ import lombok.Getter;
 public class MapperConfig {
 
     /**
+     * 是否启用
+     */
+    private boolean enable = true;
+
+    /**
      * Mapper接口父类
      */
     private String superClass = MybatisMapper.class.getName();
@@ -39,6 +44,14 @@ public class MapperConfig {
      * mapper接口后缀
      */
     private String suffix = "Mapper";
+
+    /**
+     * 设置是否启用
+     */
+    public MapperConfig enable(boolean enable) {
+        this.enable = enable;
+        return this;
+    }
 
 
     /**

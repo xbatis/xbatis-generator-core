@@ -14,6 +14,8 @@
 
 package cn.mybatis.mp.generator.core.template;
 
+import cn.mybatis.mp.core.mvc.impl.BasicDaoImpl;
+import cn.mybatis.mp.core.mvc.impl.DaoImpl;
 import cn.mybatis.mp.generator.core.config.GeneratorConfig;
 import cn.mybatis.mp.generator.core.database.meta.EntityInfo;
 import cn.mybatis.mp.generator.core.util.GeneratorUtil;
@@ -54,7 +56,13 @@ public class DaoImplTemplateBuilder extends AbstractTemplateBuilder {
     @Override
     public Map<String, Object> contextData() {
         Map<String, Object> data = new HashMap<>();
+        if (generatorConfig.getDaoImplConfig().getSuperClass() != null) {
+            if (!generatorConfig.getMapperConfig().isEnable() && generatorConfig.getDaoImplConfig().getSuperClass().equals(DaoImpl.class.getName())) {
+                generatorConfig.getDaoImplConfig().superClass(BasicDaoImpl.class);
+            }
+        }
         GeneratorUtil.buildDaoImplImports(generatorConfig, entityInfo, data);
+
         if (generatorConfig.getDaoImplConfig().getSuperClass() != null) {
             int dotIndex = generatorConfig.getDaoImplConfig().getSuperClass().lastIndexOf(".");
             String superName;
