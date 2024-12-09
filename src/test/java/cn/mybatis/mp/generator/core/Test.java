@@ -148,7 +148,11 @@ public class Test {
                 .templateBuilders(list -> {
                     list.add(TsTypeTemplateBuilder.class);
                 })
-                .mapperXmlConfig(mapperXmlConfig -> mapperXmlConfig.enable(true).columnList(true).resultMap(true))
+//                .mapperConfig(mapperXmlConfig -> {mapperXmlConfig.enable(false).superClass(Test.class);})
+//                .daoConfig(daoConfig -> daoConfig.enable(false))
+//                .daoImplConfig(daoImplConfig -> daoImplConfig.enable(false))
+//                .serviceImplConfig(serviceImplConfig -> serviceImplConfig.injectMapper(true))
+                .mapperXmlConfig(mapperXmlConfig -> mapperXmlConfig.enable(false).columnList(true).resultMap(true))
         ).create();
     }
 

@@ -78,9 +78,21 @@ public class EntityInfo {
 
         this.entityPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getEntityConfig().getPackageName());
 
-        if (!generatorConfig.getMapperConfig().isEnable() && generatorConfig.getMapperConfig().getSuperClass().equals(MybatisMapper.class.getName())) {
-            this.mapperName = BasicMapper.class.getSimpleName();
-            this.mapperPackage = BasicMapper.class.getPackage().getName();
+        if (!generatorConfig.getMapperConfig().isEnable()) {
+            if (generatorConfig.getMapperConfig().getSuperClass().equals(MybatisMapper.class.getName())) {
+                this.mapperName = BasicMapper.class.getSimpleName();
+                this.mapperPackage = BasicMapper.class.getPackage().getName();
+            } else {
+                int dotIndex = generatorConfig.getMapperConfig().getSuperClass().lastIndexOf(".");
+                if (dotIndex > 0) {
+                    this.mapperName = generatorConfig.getMapperConfig().getSuperClass().substring(dotIndex + 1);
+                    this.mapperPackage = generatorConfig.getMapperConfig().getSuperClass().substring(dotIndex);
+                } else {
+                    this.mapperName = generatorConfig.getMapperConfig().getSuperClass();
+                    this.mapperPackage = "";
+                }
+            }
+
         } else {
             this.mapperName = this.name + generatorConfig.getMapperConfig().getSuffix();
             this.mapperPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getMapperConfig().getPackageName());
