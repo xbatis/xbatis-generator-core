@@ -66,7 +66,7 @@ public class MapperConfig {
      * Mapper接口父类
      */
     public MapperConfig superClass(Class superClass) {
-        this.superClass = superClass.getName();
+        this.superClass = superClass == null ? null : superClass.getName();
         return this;
     }
 

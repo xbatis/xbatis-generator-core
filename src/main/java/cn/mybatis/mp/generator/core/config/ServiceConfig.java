@@ -56,7 +56,7 @@ public class ServiceConfig {
      * 接口父类
      */
     public ServiceConfig superClass(Class superClass) {
-        this.superClass = superClass.getName();
+        this.superClass = superClass == null ? null : superClass.getName();
         return this;
     }
 

@@ -68,7 +68,7 @@ public class ServiceImplConfig {
      * 接口父类
      */
     public ServiceImplConfig superClass(Class superClass) {
-        this.superClass = superClass.getName();
+        this.superClass = superClass == null ? null : superClass.getName();
         return this;
     }
 

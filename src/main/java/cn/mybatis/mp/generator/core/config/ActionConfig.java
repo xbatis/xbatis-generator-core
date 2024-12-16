@@ -152,7 +152,7 @@ public class ActionConfig {
      * 控制器父类
      */
     public ActionConfig superClass(Class superClass) {
-        this.superClass = superClass.getName();
+        this.superClass = superClass == null ? null : superClass.getName();
         return this;
     }
 

@@ -14,7 +14,6 @@
 
 package cn.mybatis.mp.generator.core.config;
 
-import cn.mybatis.mp.core.mvc.Dao;
 import lombok.Getter;
 
 @Getter
@@ -23,7 +22,7 @@ public class DaoConfig {
     /**
      * dao接口父类
      */
-    private String superClass = Dao.class.getName();
+    private String superClass;
 
     /**
      * 是否启用
@@ -58,7 +57,7 @@ public class DaoConfig {
      * dao接口父类
      */
     public DaoConfig superClass(Class superClass) {
-        this.superClass = superClass.getName();
+        this.superClass = superClass == null ? null : superClass.getName();
         return this;
     }
 

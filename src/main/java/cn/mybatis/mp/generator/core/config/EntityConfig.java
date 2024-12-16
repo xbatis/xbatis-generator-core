@@ -197,7 +197,7 @@ public class EntityConfig {
      * @return
      */
     public EntityConfig superClass(Class superClass) {
-        this.superClass = superClass.getName();
+        this.superClass = superClass == null ? null : superClass.getName();
         return this;
     }
 

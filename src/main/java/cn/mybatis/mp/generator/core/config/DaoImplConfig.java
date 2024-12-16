@@ -53,7 +53,7 @@ public class DaoImplConfig {
      * dao实现类的父类
      */
     public DaoImplConfig superClass(Class superClass) {
-        this.superClass = superClass.getName();
+        this.superClass = superClass == null ? null : superClass.getName();
         return this;
     }
 
