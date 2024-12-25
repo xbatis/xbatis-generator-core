@@ -128,6 +128,10 @@ public class GeneratorUtil {
                 classList.add("lombok.EqualsAndHashCode");
                 classList.add("lombok.ToString");
             }
+
+            if(generatorConfig.getEntityConfig().isCreateFieldClass()){
+                classList.add("lombok.experimental.FieldNameConstants");
+            }
         }
         entityInfo.getFieldInfoList().forEach(item -> {
             classList.add(item.getType().getName());

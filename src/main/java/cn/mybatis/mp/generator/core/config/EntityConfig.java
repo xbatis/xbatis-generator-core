@@ -50,6 +50,11 @@ public class EntityConfig {
     private boolean serial = false;
 
     /**
+     * 生成字段类字段名
+     */
+    private boolean createFieldClass = true;
+
+    /**
      * 实体类父类
      */
     private String superClass;
@@ -168,6 +173,17 @@ public class EntityConfig {
      */
     public EntityConfig comment(boolean comment) {
         this.comment = comment;
+        return this;
+    }
+
+    /**
+     * 生成字段类字段名
+     *
+     * @param createFieldClass
+     * @return
+     */
+    public EntityConfig createFieldClass(boolean createFieldClass) {
+        this.createFieldClass = createFieldClass;
         return this;
     }
 

@@ -34,6 +34,9 @@ import io.swagger.annotations.ApiModelProperty;
     </#if>
 @NoArgsConstructor
 </#if>
+<#if entityConfig.isCreateFieldClass()>
+@FieldNameConstants
+</#if>
 <#if entityConfig.hasSuperClass()>
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
@@ -51,6 +54,14 @@ public class ${entityInfo.buildClassFullName(entityConfig)} {
 
 <#if entityConfig.isSerial()>
     private static final long serialVersionUID = 1L;
+
+</#if>
+<#if !entityConfig.isLombok() && entityConfig.isCreateFieldClass()>
+    public final static class Fields {
+        <#list entityInfo.allFieldInfoList as field>
+        public final static String ${field.name} = "${field.name}";
+        </#list>
+    }
 
 </#if>
 <#list entityInfo.fieldInfoList as field>
