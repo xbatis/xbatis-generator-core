@@ -9,7 +9,7 @@
 <dependency>
     <groupId>cn.mybatis-mp</groupId>
     <artifactId>mybatis-mp-generator-core</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7-RC</version>
 </dependency>
 ```
 
@@ -239,6 +239,11 @@ new GeneratorConfig(...).entityConfig(entityConfig->{
         <td>serial</td>
         <td>false</td>
         <td align="left">是否序列化，会implements Serializable</td>
+    </tr>
+    <tr align="center">
+        <td>createFieldClass</td>
+        <td>true</td>
+        <td align="left">是否生成静态字段名类Fields</td>
     </tr>
     <tr align="center">
         <td>superClass</td>
