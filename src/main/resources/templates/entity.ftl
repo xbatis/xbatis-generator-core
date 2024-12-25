@@ -56,14 +56,6 @@ public class ${entityInfo.buildClassFullName(entityConfig)} {
     private static final long serialVersionUID = 1L;
 
 </#if>
-<#if !entityConfig.isLombok() && entityConfig.isCreateFieldClass()>
-    public final static class Fields {
-        <#list entityInfo.allFieldInfoList as field>
-        public final static String ${field.name} = "${field.name}";
-        </#list>
-    }
-
-</#if>
 <#list entityInfo.fieldInfoList as field>
 <#if entityConfig.isComment() && field.remarks?? && field.remarks != "">
     /**
@@ -137,5 +129,14 @@ public class ${entityInfo.buildClassFullName(entityConfig)} {
     </#list>
         "}";
     }
+
+</#if>
+<#if !entityConfig.isLombok() && entityConfig.isCreateFieldClass()>
+    public final static class Fields {
+    <#list entityInfo.allFieldInfoList as field>
+        public final static String ${field.name} = "${field.name}";
+    </#list>
+    }
+
 </#if>
 }

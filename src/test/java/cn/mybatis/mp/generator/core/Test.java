@@ -148,6 +148,7 @@ public class Test {
                 .templateBuilders(list -> {
                     list.add(TsTypeTemplateBuilder.class);
                 })
+                //.entityConfig(entityConfig -> entityConfig.lombok(false))
 //                .mapperConfig(mapperXmlConfig -> {mapperXmlConfig.enable(false).superClass(Test.class);})
 //                .daoConfig(daoConfig -> daoConfig.enable(false))
 //                .daoImplConfig(daoImplConfig -> daoImplConfig.enable(false))
