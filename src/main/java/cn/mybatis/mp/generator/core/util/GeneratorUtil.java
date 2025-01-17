@@ -129,7 +129,7 @@ public class GeneratorUtil {
                 classList.add("lombok.ToString");
             }
 
-            if(generatorConfig.getEntityConfig().isCreateFieldClass()){
+            if (generatorConfig.getEntityConfig().isCreateFieldClass()) {
                 classList.add("lombok.experimental.FieldNameConstants");
             }
         }
@@ -164,8 +164,8 @@ public class GeneratorUtil {
         if (generatorConfig.getMapperConfig().isMapperAnnotation()) {
             classList.add(Mapper.class.getName());
         }
-        if(entityInfo.hasMultiId()){
-            entityInfo.getIdFieldInfoList().forEach(item->{
+        if (entityInfo.hasMultiId()) {
+            entityInfo.getIdFieldInfoList().forEach(item -> {
                 classList.add(item.getType().getName());
             });
         }
@@ -185,8 +185,8 @@ public class GeneratorUtil {
         if (generatorConfig.getDaoConfig().getSuperClass() != null) {
             classList.add(generatorConfig.getDaoConfig().getSuperClass());
         }
-        if(entityInfo.hasMultiId()){
-            entityInfo.getIdFieldInfoList().forEach(item->{
+        if (entityInfo.hasMultiId()) {
+            entityInfo.getIdFieldInfoList().forEach(item -> {
                 classList.add(item.getType().getName());
             });
         }
@@ -209,8 +209,8 @@ public class GeneratorUtil {
         if (generatorConfig.getDaoImplConfig().getSuperClass() != null) {
             classList.add(generatorConfig.getDaoImplConfig().getSuperClass());
         }
-        if(entityInfo.hasMultiId()){
-            entityInfo.getIdFieldInfoList().forEach(item->{
+        if (entityInfo.hasMultiId()) {
+            entityInfo.getIdFieldInfoList().forEach(item -> {
                 classList.add(item.getType().getName());
             });
         }
@@ -326,8 +326,8 @@ public class GeneratorUtil {
         if (generatorConfig.getActionConfig().getReturnClass() != null) {
             classList.add(generatorConfig.getActionConfig().getReturnClass());
         }
-        if(entityInfo.hasMultiId() &&(generatorConfig.getActionConfig().isEnableGet()|| generatorConfig.getActionConfig().isEnableDelete())){
-            entityInfo.getIdFieldInfoList().forEach(item->{
+        if (entityInfo.hasMultiId() && (generatorConfig.getActionConfig().isEnableGet() || generatorConfig.getActionConfig().isEnableDelete())) {
+            entityInfo.getIdFieldInfoList().forEach(item -> {
                 classList.add(item.getType().getName());
             });
         }

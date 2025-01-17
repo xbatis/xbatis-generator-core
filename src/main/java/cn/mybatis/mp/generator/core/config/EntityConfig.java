@@ -168,6 +168,7 @@ public class EntityConfig {
 
     /**
      * 设置是否生成注释
+     *
      * @param comment
      * @return
      */
