@@ -80,7 +80,7 @@ public class EntityFieldInfo {
                 || hasIgnorePrefix
                 || !select
                 || !update
-                || (entityConfig.isDefaultValueEnable() && this.getColumnInfo().getDefaultValue() != null)
+                || (!this.columnInfo.isPrimaryKey() && entityConfig.isDefaultValueEnable() && this.getColumnInfo().getDefaultValue() != null)
                 || !this.getColumnInfo().getName().equals(NamingUtil.camelToUnderline(this.name))
                 ;
     }
@@ -96,7 +96,7 @@ public class EntityFieldInfo {
         if (!update) {
             stringBuilder.append("update = false,");
         }
-        if (entityConfig.isDefaultValueEnable() && this.getColumnInfo().getDefaultValue() != null) {
+        if (!this.columnInfo.isPrimaryKey() && entityConfig.isDefaultValueEnable() && this.getColumnInfo().getDefaultValue() != null) {
             stringBuilder.append("defaultValue = \"")
                     .append(this.getColumnInfo().getDefaultValue().replace("\"", "\\\""))
                     .append("\",");
@@ -107,9 +107,12 @@ public class EntityFieldInfo {
                         .append("\",");
             }
         }
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-
-        stringBuilder.append(")");
+        if (stringBuilder.charAt(stringBuilder.length() - 1) == '(') {
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        } else {
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.append(")");
+        }
         return stringBuilder.toString();
     }
 
