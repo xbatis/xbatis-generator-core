@@ -125,7 +125,7 @@ public class EntityInfo {
     public String buildTable(EntityConfig entityConfig) {
         StringBuilder stringBuilder = new StringBuilder("@Table(");
         stringBuilder.append("value =\"").append(this.getTableInfo().getName()).append("\",");
-        if (!entityConfig.isSchema() && this.getTableInfo().getSchema() != null && !this.getTableInfo().getSchema().isEmpty()) {
+        if (entityConfig.isSchema() && this.getTableInfo().getSchema() != null && !this.getTableInfo().getSchema().isEmpty()) {
             stringBuilder.append("schema = \"").append(this.getTableInfo().getSchema()).append("\",");
         }
         stringBuilder.deleteCharAt(stringBuilder.length() - 1);
