@@ -20,17 +20,17 @@
     <parent>
         <groupId>cn.mybatis-mp</groupId>
         <artifactId>mybatis-mp</artifactId>
-        <version>1.7.9</version>
+        <version>1.8.0</version>
     </parent>
 
     <artifactId>mybatis-mp-generator-core</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 
     <url>https://gitee.com/mybatis-mp-generator-core</url>
 
     <properties>
         <freemarker.version>2.3.33</freemarker.version>
-        <solon.version>3.0.3</solon.version>
+        <solon.version>3.0.7</solon.version>
         <swagger2.version>3.0.0</swagger2.version>
         <swagger3.version>2.2.25</swagger3.version>
     </properties>
