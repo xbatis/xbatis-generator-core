@@ -1,15 +1,15 @@
 # 代码生成器
 ```
-该模块从mybatis-mp独立而出，已经历多次迭代，可放心使用！！！
+该模块从xbatis独立而出，已经历多次迭代，可放心使用！！！
 ``` 
 
 ## maven引入
 
 ```xml
 <dependency>
-    <groupId>cn.mybatis-mp</groupId>
-    <artifactId>mybatis-mp-generator-core</artifactId>
-    <version>1.0.8</version>
+    <groupId>cn.xbatis</groupId>
+    <artifactId>xbatis-generator-core</artifactId>
+    <version>1.0.9</version>
 </dependency>
 ```
 
@@ -334,7 +334,7 @@ new GeneratorConfig(...).mapperConfig(mapperConfig->{
     <tr align="center">
         <td>superClass</td>
         <td>默认继承 MybatisMapper 接口</td>
-        <td align="left">Mapper接口的父接口，例如：cn.mybatis.mp.core.mybatis.mapper.MybatisMapper</td>
+        <td align="left">Mapper接口的父接口，例如：cn.xbatis.core.mybatis.mapper.MybatisMapper</td>
     </tr>
     <tr align="center">
         <td>mapperAnnotation</td>
@@ -416,7 +416,7 @@ new GeneratorConfig(...).daoConfig(daoConfig->{
     <tr align="center">
         <td>superClass</td>
         <td>默认继承 Dao 接口</td>
-        <td align="left">dao接口的父接口，例如：cn.mybatis.mp.core.mvc.Dao</td>
+        <td align="left">dao接口的父接口，例如：cn.xbatis.core.mvc.Dao</td>
     </tr>
     <tr align="center">
         <td>generic</td>
@@ -452,7 +452,7 @@ new GeneratorConfig(...).daoImplConfig(daoImplConfig->{
     <tr align="center">
         <td>superClass</td>
         <td>默认继承 DaoImpl 实现类</td>
-        <td align="left">dao接口的父接口，例如：cn.mybatis.mp.core.mvc.impl.DaoImpl</td>
+        <td align="left">dao接口的父接口，例如：cn.xbatis.core.mvc.impl.DaoImpl</td>
     </tr>
    <tr align="center">
         <td>enable</td>
@@ -498,7 +498,7 @@ new GeneratorConfig(...).serviceConfig(serviceConfig->{
     <tr align="center">
         <td>superClass</td>
         <td>默认继承 Service 接口</td>
-        <td align="left">Service接口的父接口，例如：cn.mybatis.mp.core.mvc.Service</td>
+        <td align="left">Service接口的父接口，例如：cn.xbatis.core.mvc.Service</td>
     </tr>
     <tr align="center">
         <td>generic</td>
@@ -549,7 +549,7 @@ new GeneratorConfig(...).serviceImplConfig(serviceImplConfig->{
     <tr align="center">
         <td>superClass</td>
         <td>默认继承 ServiceImpl 实现类</td>
-        <td align="left">dao接口的父接口，例如：cn.mybatis.mp.core.mvc.impl.ServiceImpl</td>
+        <td align="left">dao接口的父接口，例如：cn.xbatis.core.mvc.impl.ServiceImpl</td>
     </tr>
     <tr align="center">
         <td>generic</td>

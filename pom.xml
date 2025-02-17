@@ -18,21 +18,53 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>cn.mybatis-mp</groupId>
-        <artifactId>mybatis-mp</artifactId>
-        <version>1.8.0</version>
+        <groupId>cn.xbatis</groupId>
+        <artifactId>xbatis</artifactId>
+        <version>1.8.1</version>
     </parent>
 
-    <artifactId>mybatis-mp-generator-core</artifactId>
-    <version>1.0.8</version>
+    <url>https://gitee.com/xbatis-generator-core</url>
+    <artifactId>xbatis-generator-core</artifactId>
+    <version>1.0.9</version>
+    <description>
+        xbatis代码生成器
+    </description>
 
-    <url>https://gitee.com/mybatis-mp-generator-core</url>
+    <issueManagement>
+        <system>Gitee Issue</system>
+        <url>https://gitee.com/xbatis/xbatis-generator-core/issues</url>
+    </issueManagement>
+
+    <scm>
+        <connection>https://gitee.com/xbatis/xbatis-generator-core.git</connection>
+        <url>https://gitee.com/xbatis/xbatis-generator-core</url>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>Apache-2.0</name>
+            <url>https://gitee.com/xbatis/xbatis-generator-core/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Ai东</name>
+            <email>abc-127@live.cn</email>
+            <roles>
+                <role>Owner</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
 
     <properties>
+        <xbatis.version>1.8.1</xbatis.version>
         <freemarker.version>2.3.33</freemarker.version>
         <solon.version>3.0.7</solon.version>
         <swagger2.version>3.0.0</swagger2.version>
         <swagger3.version>2.2.25</swagger3.version>
+        <HikariCP.version>6.2.1</HikariCP.version>
     </properties>
 
     <dependencyManagement>
@@ -62,36 +94,54 @@
                 <artifactId>freemarker</artifactId>
                 <version>${freemarker.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.xbatis</groupId>
+                <artifactId>xbatis</artifactId>
+                <version>${xbatis.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
         <dependency>
-            <groupId>cn.mybatis-mp</groupId>
-            <artifactId>mybatis-mp-core</artifactId>
+            <groupId>cn.xbatis</groupId>
+            <artifactId>xbatis</artifactId>
+            <version>${xbatis.version}</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>cn.xbatis</groupId>
+            <artifactId>xbatis-core</artifactId>
+            <version>${xbatis.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
+            <version>${mysql.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.noear</groupId>
             <artifactId>solon</artifactId>
+            <version>${solon.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger2.version}</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
@@ -108,46 +158,54 @@
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-jaxrs2</artifactId>
+            <version>${swagger3.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
+            <version>${swagger3.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.oracle.database.jdbc</groupId>
             <artifactId>ojdbc8</artifactId>
+            <version>${oracle.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
+            <version>${HikariCP.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
