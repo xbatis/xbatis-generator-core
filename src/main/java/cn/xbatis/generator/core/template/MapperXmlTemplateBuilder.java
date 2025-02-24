@@ -41,7 +41,7 @@ public class MapperXmlTemplateBuilder extends AbstractTemplateBuilder {
                 generatorConfig.getBaseFilePath(),
                 generatorConfig.getResourcePath(),
                 generatorConfig.getMapperXmlConfig().getPackageName().replaceAll("\\.", Matcher.quoteReplacement(File.separator)),
-                entityInfo.getName())
+                entityInfo.getName() + generatorConfig.getMapperXmlConfig().getSuffix())
                 + ".xml";
     }
 
