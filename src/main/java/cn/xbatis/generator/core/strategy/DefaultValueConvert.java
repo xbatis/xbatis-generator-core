@@ -27,7 +27,7 @@ public class DefaultValueConvert {
         defaultValue = defaultValue.trim();
         if (StringPool.EMPTY.equals(defaultValue) || "''".equals(defaultValue)) {
             return "{BLANK}";
-        } else if (defaultValue.equalsIgnoreCase("CURRENT_TIMESTAMP") || defaultValue.equalsIgnoreCase("CURRENT_DATE") || defaultValue.equalsIgnoreCase("LOCALTIMESTAMP")) {
+        } else if (defaultValue.equalsIgnoreCase("NOW()") || defaultValue.equalsIgnoreCase("CURRENT_TIMESTAMP") || defaultValue.equalsIgnoreCase("CURRENT_DATE") || defaultValue.equalsIgnoreCase("LOCALTIMESTAMP")) {
             return "{NOW}";
         } else if (defaultValue.equalsIgnoreCase("b'0'")) {
             return "0";
