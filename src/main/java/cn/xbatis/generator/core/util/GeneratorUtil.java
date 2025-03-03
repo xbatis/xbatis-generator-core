@@ -38,6 +38,21 @@ import java.util.stream.Collectors;
 public class GeneratorUtil {
 
     /**
+     * 获取实体类Base名字
+     *
+     * @param generatorConfig
+     * @param tableName
+     * @return
+     */
+    public static String getEntityBaseName(GeneratorConfig generatorConfig, String tableName) {
+        EntityConfig entityConfig = generatorConfig.getEntityConfig();
+        if (entityConfig.getNameConvert() == null) {
+            entityConfig.nameConvert((table -> NamingUtil.firstToUpperCase(NamingUtil.underlineToCamel(table))));
+        }
+        return entityConfig.getNameConvert().apply(tableName);
+    }
+
+    /**
      * 获取实体类名字
      *
      * @param generatorConfig
@@ -49,7 +64,12 @@ public class GeneratorUtil {
         if (entityConfig.getNameConvert() == null) {
             entityConfig.nameConvert((table -> NamingUtil.firstToUpperCase(NamingUtil.underlineToCamel(table))));
         }
-        return entityConfig.getNameConvert().apply(tableName);
+
+        String name = getEntityBaseName(generatorConfig, tableName);
+        if (entityConfig.getSuffix() != null) {
+            name += entityConfig.getSuffix();
+        }
+        return name;
     }
 
 

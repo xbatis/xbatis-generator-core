@@ -41,6 +41,7 @@ public class EntityInfo {
     public final String actionPackage;
     private final TableInfo tableInfo;
     private final String name;
+    private final String baseName;
     private final String remarks;
     private final EntityFieldInfo idFieldInfo;
     private final List<EntityFieldInfo> idFieldInfoList;
@@ -60,6 +61,7 @@ public class EntityInfo {
         String handledTableName = NamingUtil.removePrefix(tableInfo.getName(), generatorConfig.getTableConfig().getTablePrefixes());
         hasIgnorePrefix = handledTableName != tableInfo.getName();
         this.name = GeneratorUtil.getEntityName(generatorConfig, handledTableName);
+        this.baseName = GeneratorUtil.getEntityBaseName(generatorConfig, handledTableName);
         this.remarks = tableInfo.getRemarks();
         this.tableInfo = tableInfo;
         if (tableInfo.getIdColumnInfo() != null) {
@@ -94,23 +96,23 @@ public class EntityInfo {
             }
 
         } else {
-            this.mapperName = this.name + generatorConfig.getMapperConfig().getSuffix();
+            this.mapperName = baseName + generatorConfig.getMapperConfig().getSuffix();
             this.mapperPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getMapperConfig().getPackageName());
         }
 
-        this.daoName = this.name + generatorConfig.getDaoConfig().getSuffix();
+        this.daoName = baseName + generatorConfig.getDaoConfig().getSuffix();
         this.daoPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getDaoConfig().getPackageName());
 
-        this.daoImplName = this.name + generatorConfig.getDaoImplConfig().getSuffix();
+        this.daoImplName = baseName + generatorConfig.getDaoImplConfig().getSuffix();
         this.daoImplPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getDaoImplConfig().getPackageName());
 
-        this.serviceName = this.name + generatorConfig.getServiceConfig().getSuffix();
+        this.serviceName = baseName + generatorConfig.getServiceConfig().getSuffix();
         this.servicePackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getServiceConfig().getPackageName());
 
-        this.serviceImplName = this.name + generatorConfig.getServiceImplConfig().getSuffix();
+        this.serviceImplName = baseName + generatorConfig.getServiceImplConfig().getSuffix();
         this.serviceImplPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getServiceImplConfig().getPackageName());
 
-        this.actionName = this.name + generatorConfig.getActionConfig().getSuffix();
+        this.actionName = baseName + generatorConfig.getActionConfig().getSuffix();
         this.actionPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getActionConfig().getPackageName());
     }
 
@@ -229,5 +231,9 @@ public class EntityInfo {
         }
         stringBuilder.append(">");
         return stringBuilder.toString();
+    }
+
+    public String getBaseName() {
+        return baseName;
     }
 }

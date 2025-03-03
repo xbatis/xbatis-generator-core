@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiParam;
  */
 </#if>
 @${controllerAnnotationName}
-@${requestMappingAnnotationName}("/${util.firstToLower(entityInfo.name)}")
+@${requestMappingAnnotationName}("/${util.firstToLower(entityInfo.baseName)}")
 <#if actionConfig.isSwagger()>
     <#if generatorConfig.getSwaggerVersion() == 3>
 @Tag(name = "${entityInfo.tableInfo.remarks!}")

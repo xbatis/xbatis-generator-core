@@ -110,6 +110,12 @@ public class EntityConfig {
      */
     private Function<ColumnInfo, String> remarksConverter;
 
+
+    /**
+     * mapper接口后缀
+     */
+    private String suffix = "";
+
     private boolean alwaysAnnotation;
 
     {
@@ -338,6 +344,11 @@ public class EntityConfig {
         return this;
     }
 
+    public EntityConfig suffix(String suffix) {
+        this.suffix = suffix;
+        return this;
+    }
+
     public boolean isAlwaysAnnotation() {
         return alwaysAnnotation;
     }
@@ -348,5 +359,9 @@ public class EntityConfig {
 
     public boolean isComment() {
         return comment;
+    }
+
+    public String getSuffix() {
+        return suffix;
     }
 }
