@@ -101,6 +101,7 @@ public class Test {
                             .serial(false)
                             .swagger(true)
                             .superClass(Test.class)
+                            .suffix("DO")
                     ;
                     entityConfig.swagger(true).packageName("model");
                     entityConfig.logicDeleteCode("@LogicDelete(beforeValue=\"0\",afterValue=\"1\",deleteTimeField=\"create_time\")");
