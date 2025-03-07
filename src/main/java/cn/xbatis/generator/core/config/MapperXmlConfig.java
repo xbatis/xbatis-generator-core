@@ -37,7 +37,7 @@ public class MapperXmlConfig {
     /**
      * mapper xml 目录名字
      */
-    private String packageName = "mappers";
+    private String packageName = "mapper";
 
     /**
      * mapper xml 后缀
