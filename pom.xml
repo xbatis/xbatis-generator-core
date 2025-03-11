@@ -60,7 +60,7 @@
 
     <properties>
         <freemarker.version>2.3.33</freemarker.version>
-        <solon.version>3.0.7</solon.version>
+        <solon.version>3.1.0</solon.version>
         <swagger2.version>3.0.0</swagger2.version>
         <swagger3.version>2.2.25</swagger3.version>
     </properties>
