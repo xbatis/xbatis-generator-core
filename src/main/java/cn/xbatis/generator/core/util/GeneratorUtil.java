@@ -142,6 +142,7 @@ public class GeneratorUtil {
             if (generatorConfig.getEntityConfig().isLombokBuilder()) {
                 classList.add(generatorConfig.getEntityConfig().hasSuperClass() ? "lombok.experimental.SuperBuilder" : "lombok.Builder");
                 classList.add("lombok.NoArgsConstructor");
+                classList.add("lombok.AllArgsConstructor");
             }
 
             if (generatorConfig.getEntityConfig().hasSuperClass()) {

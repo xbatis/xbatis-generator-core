@@ -33,6 +33,7 @@ import io.swagger.annotations.ApiModelProperty;
 @Builder
     </#if>
 @NoArgsConstructor
+@AllArgsConstructor
 </#if>
 <#if entityConfig.isCreateFieldClass()>
 @FieldNameConstants
