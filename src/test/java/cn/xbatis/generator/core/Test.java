@@ -17,6 +17,7 @@ package cn.xbatis.generator.core;
 import cn.xbatis.generator.core.buidler.TsTypeTemplateBuilder;
 import cn.xbatis.generator.core.config.ContainerType;
 import cn.xbatis.generator.core.config.GeneratorConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import db.sql.api.DbType;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -24,6 +25,55 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import javax.sql.DataSource;
 
 public class Test {
+
+    private static void sqlserverTest() {
+        String TIME_ZONE = "Asia/Shanghai";
+
+        HikariDataSource ds = new HikariDataSource();
+        ds.setJdbcUrl("jdbc:sqlserver://localhost:1433;DatabaseName=master;encrypt=false;useUnicode=true;characterEncoding=utf-8;genKeyNameCase=2;serverTimezone=" + TIME_ZONE);
+        ds.setUsername("SA");
+        ds.setPassword("AbC@128723");
+        ds.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        ds.setAutoCommit(false);
+
+        new FastGenerator(new GeneratorConfig(DbType.SQL_SERVER, ds)
+                .baseFilePath(System.getProperty("user.dir") + "/target/generated-code")
+                .basePackage("com.test")
+                .swaggerVersion(3)
+                .containerType(ContainerType.SPRING)
+                .tableConfig(tableConfig -> {
+                    tableConfig.includeTable("t_sys_user", "t_sys_user", "t_sys_user", "t_sys_user");
+                })
+                .columnConfig(columnConfig -> {
+                    columnConfig.disableUpdateColumns("create_time");
+                    columnConfig.versionColumn("phone");
+                    columnConfig.logicDeleteColumn("free");
+                    columnConfig.tenantIdColumn("state");
+                })
+                .entityConfig(entityConfig -> {
+                    entityConfig.lombok(false);
+                    entityConfig.swagger(true);
+                    entityConfig.alwaysAnnotation(false);
+                    entityConfig.logicDeleteCode("@LogicDelete(beforeValue=\"0\",afterValue=\"1\",deleteTimeField=\"create_time\")");
+                })
+                .mapperXmlConfig(mapperXmlConfig -> {
+                    mapperXmlConfig.enable(true).resultMap(true).columnList(true);
+                })
+                .serviceImplConfig(serviceImplConfig -> {
+                    serviceImplConfig.superClass(Integer.class).injectMapper(true);
+                })
+                .actionConfig(actionConfig -> {
+                    actionConfig
+                            .enableSave(true)
+                            .enableUpdate(true)
+                            .enableFind(true)
+                            .enableGet(true)
+                            .enableDelete(true)
+                            .swagger(true)
+                            .returnClass(Object.class.getName());
+                })
+        ).create();
+    }
 
     private static void oracleTest() {
         new FastGenerator(new GeneratorConfig(
@@ -160,7 +210,7 @@ public class Test {
 
     public static void main(String[] args) {
         Long start = System.currentTimeMillis();
-        mysqlTest();
+        sqlserverTest();
         //oracleTest();
         System.out.println(System.currentTimeMillis() - start);
     }
