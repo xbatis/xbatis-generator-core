@@ -36,6 +36,11 @@ public class EntityConfig {
     /**
      * 数据库类型的java映射
      */
+    private final Map<String, Class<?>> typeAndNameMapping = new HashMap<>();
+
+    /**
+     * 数据库类型的java映射
+     */
     private final Map<JdbcType, Class<?>> typeMapping = new HashMap<>();
 
 
@@ -148,6 +153,17 @@ public class EntityConfig {
         typeMapping.put(JdbcType.DATETIMEOFFSET, OffsetDateTime.class);
         typeMapping.put(JdbcType.TIME_WITH_TIMEZONE, OffsetTime.class);
         typeMapping.put(JdbcType.TIMESTAMP_WITH_TIMEZONE, OffsetDateTime.class);
+        typeMapping.put(JdbcType.ARRAY, Object[].class);
+    }
+
+    {
+        typeMapping(JdbcType.ARRAY, "_bool", Boolean[].class);
+        typeMapping(JdbcType.ARRAY, "_int2", Integer[].class);
+        typeMapping(JdbcType.ARRAY, "_int4", Integer[].class);
+        typeMapping(JdbcType.ARRAY, "_int8", Long[].class);
+        typeMapping(JdbcType.ARRAY, "_numeric", BigDecimal[].class);
+        typeMapping(JdbcType.ARRAY, "_text", String[].class);
+        typeMapping(JdbcType.ARRAY, "_varchar", String[].class);
     }
 
     /**
@@ -284,6 +300,32 @@ public class EntityConfig {
         return this;
     }
 
+    /**
+     * 字段类型映射
+     *
+     * @param jdbcType 字段类型
+     * @param typeName 字段类型名称
+     * @param type     字段映射的类型
+     * @return
+     */
+    public EntityConfig typeMapping(JdbcType jdbcType, String typeName, Class<?> type) {
+        typeAndNameMapping.put(jdbcType.name() + "-" + typeName, type);
+        return this;
+    }
+
+    /**
+     * 获取列的类型
+     *
+     * @param columnInfo
+     * @return
+     */
+    public Class<?> getColumnType(ColumnInfo columnInfo) {
+        Class<?> type = typeAndNameMapping.get(columnInfo.getJdbcType() + "-" + columnInfo.getTypeName());
+        if (type != null) {
+            return type;
+        }
+        return typeMapping.get(columnInfo.getJdbcType());
+    }
 
     /**
      * 实体类名字转换器

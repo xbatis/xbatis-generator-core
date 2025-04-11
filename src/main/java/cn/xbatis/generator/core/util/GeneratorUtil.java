@@ -111,7 +111,7 @@ public class GeneratorUtil {
      * @return
      */
     public static Class<?> getColumnType(GeneratorConfig generatorConfig, ColumnInfo columnInfo) {
-        Class<?> type = generatorConfig.getEntityConfig().getTypeMapping().get(columnInfo.getJdbcType());
+        Class<?> type = generatorConfig.getEntityConfig().getColumnType(columnInfo);
         if (type == null) {
             return Object.class;
         }
