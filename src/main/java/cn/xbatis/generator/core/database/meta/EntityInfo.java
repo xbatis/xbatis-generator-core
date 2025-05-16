@@ -88,7 +88,7 @@ public class EntityInfo {
                 int dotIndex = generatorConfig.getMapperConfig().getSuperClass().lastIndexOf(".");
                 if (dotIndex > 0) {
                     this.mapperName = generatorConfig.getMapperConfig().getSuperClass().substring(dotIndex + 1);
-                    this.mapperPackage = generatorConfig.getMapperConfig().getSuperClass().substring(dotIndex);
+                    this.mapperPackage = generatorConfig.getMapperConfig().getSuperClass().substring(0, dotIndex);
                 } else {
                     this.mapperName = generatorConfig.getMapperConfig().getSuperClass();
                     this.mapperPackage = "";
