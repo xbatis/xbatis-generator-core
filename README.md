@@ -9,7 +9,7 @@
 <dependency>
     <groupId>cn.xbatis</groupId>
     <artifactId>xbatis-generator-core</artifactId>
-    <version>1.1.1-M1</version>
+    <version>1.1.2-M1-M1</version>
 </dependency>
 ```
 
