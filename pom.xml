@@ -20,12 +20,12 @@
     <parent>
         <groupId>cn.xbatis</groupId>
         <artifactId>xbatis</artifactId>
-        <version>1.8.7-M3</version>
+        <version>1.8.7</version>
     </parent>
 
     <url>https://gitee.com/xbatis-generator-core</url>
     <artifactId>xbatis-generator-core</artifactId>
-    <version>1.1.2-M1</version>
+    <version>1.1.2</version>
     <description>
         xbatis代码生成器
     </description>
