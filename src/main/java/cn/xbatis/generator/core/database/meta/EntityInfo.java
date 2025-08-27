@@ -226,9 +226,7 @@ public class EntityInfo {
     public String buildGenericWithId() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("<").append(getName()).append(", ");
-        if (Objects.nonNull(idFieldInfo)) {
-            stringBuilder.append(Objects.nonNull(idFieldInfo) ? idFieldInfo.getTypeName() : "Void");
-        }
+        stringBuilder.append(Objects.nonNull(idFieldInfo) ? idFieldInfo.getTypeName() : "Void");
         stringBuilder.append(">");
         return stringBuilder.toString();
     }
