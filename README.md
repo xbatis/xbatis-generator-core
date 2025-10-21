@@ -1,3 +1,5 @@
+# English wiki: [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/xbatis/xbatis-generator-core)
+
 # 代码生成器
 ```
 该模块从xbatis独立而出，已经历多次迭代，可放心使用！！！
