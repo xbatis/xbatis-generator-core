@@ -14,8 +14,7 @@
 
 package cn.xbatis.generator.core.config;
 
-
-import cn.xbatis.core.util.DbTypeUtil;
+import cn.xbatis.core.dbType.DbTypeUtil;
 import db.sql.api.DbType;
 import lombok.Getter;
 
@@ -39,19 +38,16 @@ public class DataBaseConfig {
     public DataBaseConfig(DbType dbType, DataSource dataSource) {
         this.dataSource = dataSource;
         this.dbType = dbType;
-
         this.url = null;
         this.username = null;
         this.password = null;
     }
 
     public DataBaseConfig(String url, String username, String password) {
-
         this.dbType = DbTypeUtil.getDbType(url);
         this.url = url;
         this.username = username;
         this.password = password;
-
         this.dataSource = null;
     }
 
