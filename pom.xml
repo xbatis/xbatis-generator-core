@@ -20,15 +20,15 @@
     <parent>
         <groupId>cn.xbatis</groupId>
         <artifactId>xbatis</artifactId>
-        <version>1.9.5-M3</version>
+        <version>1.9.5</version>
     </parent>
 
     <name>xbatis-generator-core</name>
     <url>https://gitee.com/xbatis-generator-core</url>
     <artifactId>xbatis-generator-core</artifactId>
-    <version>1.1.6-M1</version>
+    <version>1.1.6</version>
     <description>
-        xbatis代码生成器
+        xbatis 代码生成器
     </description>
 
     <issueManagement>
@@ -60,7 +60,7 @@
     </developers>
 
     <properties>
-        <xbatis-spring-boot-starter.version>1.9.5-M3</xbatis-spring-boot-starter.version>
+        <xbatis-spring-boot-starter.version>1.9.5</xbatis-spring-boot-starter.version>
 
         <freemarker.version>2.3.34</freemarker.version>
         <solon.version>3.3.1</solon.version>
