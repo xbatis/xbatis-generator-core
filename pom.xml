@@ -20,13 +20,13 @@
     <parent>
         <groupId>cn.xbatis</groupId>
         <artifactId>xbatis</artifactId>
-        <version>1.9.5</version>
+        <version>1.9.8</version>
     </parent>
 
     <name>xbatis-generator-core</name>
     <url>https://gitee.com/xbatis-generator-core</url>
     <artifactId>xbatis-generator-core</artifactId>
-    <version>1.1.6</version>
+    <version>1.1.7</version>
     <description>
         xbatis 代码生成器
     </description>
@@ -60,8 +60,6 @@
     </developers>
 
     <properties>
-        <xbatis-spring-boot-starter.version>1.9.5</xbatis-spring-boot-starter.version>
-
         <freemarker.version>2.3.34</freemarker.version>
         <solon.version>3.3.1</solon.version>
         <swagger2.version>3.0.0</swagger2.version>
@@ -95,14 +93,6 @@
                 <artifactId>freemarker</artifactId>
                 <version>${freemarker.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>cn.xbatis</groupId>
-                <artifactId>xbatis-spring-boot-parent</artifactId>
-                <version>${xbatis-spring-boot-starter.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -110,6 +100,7 @@
         <dependency>
             <groupId>cn.xbatis</groupId>
             <artifactId>xbatis-core</artifactId>
+            <version>${xbatis.version}</version>
         </dependency>
 
         <dependency>
@@ -166,6 +157,8 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
@@ -178,25 +171,34 @@
             <groupId>com.oracle.database.jdbc</groupId>
             <artifactId>ojdbc8</artifactId>
             <scope>test</scope>
+            <version>${oracle.version}</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
+            <version>${sql_server.version}</version>
+            <optional>true</optional>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
+            <version>4.0.3</version>
+            <optional>true</optional>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
+            <version>5.3.39</version>
+            <optional>true</optional>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
 </project>

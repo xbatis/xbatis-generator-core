@@ -16,6 +16,7 @@ package cn.xbatis.generator.core.config;
 
 import cn.xbatis.core.dbType.DbTypeUtil;
 import db.sql.api.DbType;
+import db.sql.api.IDbType;
 import lombok.Getter;
 
 import javax.sql.DataSource;
@@ -27,7 +28,7 @@ import java.util.Properties;
 @Getter
 public class DataBaseConfig {
 
-    private final DbType dbType;
+    private final IDbType dbType;
     private final DataSource dataSource;
     private final String url;
     private final String username;
@@ -35,7 +36,7 @@ public class DataBaseConfig {
     private String schema;
     private String databaseName;
 
-    public DataBaseConfig(DbType dbType, DataSource dataSource) {
+    public DataBaseConfig(IDbType dbType, DataSource dataSource) {
         this.dataSource = dataSource;
         this.dbType = dbType;
         this.url = null;
@@ -55,7 +56,7 @@ public class DataBaseConfig {
         Properties properties = new Properties();
         properties.put("user", username);
         properties.put("password", password);
-        DbType dbType = DbTypeUtil.getDbType(url);
+        IDbType dbType = DbTypeUtil.getDbType(url);
         addAdditionalJdbcProperties(properties, dbType);
         try {
             return DriverManager.getConnection(url, properties);
@@ -65,19 +66,13 @@ public class DataBaseConfig {
     }
 
 
-    private static void addAdditionalJdbcProperties(Properties properties, DbType dbType) {
-        switch (dbType) {
-            case MYSQL:
-                properties.put("remarks", "true");
-                properties.put("useInformationSchema", "true");
-                break;
-            case ORACLE:
-                properties.put("remarks", "true");
-                properties.put("remarksReporting", "true");
-                break;
-            default: {
-
-            }
+    private static void addAdditionalJdbcProperties(Properties properties, IDbType dbType) {
+        if (dbType == DbType.MYSQL) {
+            properties.put("remarks", "true");
+            properties.put("useInformationSchema", "true");
+        } else if (dbType == DbType.ORACLE) {
+            properties.put("remarks", "true");
+            properties.put("remarksReporting", "true");
         }
     }
 
