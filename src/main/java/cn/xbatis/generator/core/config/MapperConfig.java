@@ -45,6 +45,19 @@ public class MapperConfig {
      */
     private String suffix = "Mapper";
 
+    private String basePackage;
+
+    /**
+     * 设置 基础包路径
+     *
+     * @param basePackage
+     * @return
+     */
+    public MapperConfig basePackage(String basePackage) {
+        this.basePackage = basePackage;
+        return this;
+    }
+
     /**
      * 设置是否启用
      */

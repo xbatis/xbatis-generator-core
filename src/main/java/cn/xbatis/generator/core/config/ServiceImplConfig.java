@@ -56,6 +56,19 @@ public class ServiceImplConfig {
      */
     private String suffix = "ServiceImpl";
 
+    private String basePackage;
+
+    /**
+     * 设置 基础包路径
+     *
+     * @param basePackage
+     * @return
+     */
+    public ServiceImplConfig basePackage(String basePackage) {
+        this.basePackage = basePackage;
+        return this;
+    }
+
     /**
      * 接口父类
      */

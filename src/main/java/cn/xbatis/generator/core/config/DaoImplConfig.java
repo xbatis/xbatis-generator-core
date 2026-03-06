@@ -41,6 +41,19 @@ public class DaoImplConfig {
     private boolean enable = true;
 
 
+    private String basePackage;
+
+    /**
+     * 设置 基础包路径
+     *
+     * @param basePackage
+     * @return
+     */
+    public DaoImplConfig basePackage(String basePackage) {
+        this.basePackage = basePackage;
+        return this;
+    }
+
     /**
      * dao实现类的父类
      */

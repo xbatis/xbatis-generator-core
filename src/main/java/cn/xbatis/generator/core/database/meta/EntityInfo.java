@@ -78,7 +78,11 @@ public class EntityInfo {
         fieldInfoList.removeAll(this.excludeFieldInfoList);
         this.fieldInfoList = fieldInfoList;
 
-        this.entityPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getEntityConfig().getPackageName());
+        String entityBasePackage = generatorConfig.getEntityConfig().getBasePackage();
+        if (entityBasePackage == null || entityBasePackage.length() == 0) {
+            entityBasePackage = generatorConfig.getBasePackage();
+        }
+        this.entityPackage = PathUtils.buildPackage(entityBasePackage, generatorConfig.getEntityConfig().getPackageName());
 
         if (!generatorConfig.getMapperConfig().isEnable()) {
             if (generatorConfig.getMapperConfig().getSuperClass().equals(MybatisMapper.class.getName())) {
@@ -100,20 +104,41 @@ public class EntityInfo {
             this.mapperPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getMapperConfig().getPackageName());
         }
 
+
+        String daoBasePackage = generatorConfig.getDaoConfig().getBasePackage();
+        if (daoBasePackage == null || daoBasePackage.length() == 0) {
+            daoBasePackage = generatorConfig.getBasePackage();
+        }
         this.daoName = baseName + generatorConfig.getDaoConfig().getSuffix();
-        this.daoPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getDaoConfig().getPackageName());
+        this.daoPackage = PathUtils.buildPackage(daoBasePackage, generatorConfig.getDaoConfig().getPackageName());
 
+        String daoImplBasePackage = generatorConfig.getDaoImplConfig().getBasePackage();
+        if (daoImplBasePackage == null || daoImplBasePackage.length() == 0) {
+            daoImplBasePackage = daoBasePackage;
+        }
         this.daoImplName = baseName + generatorConfig.getDaoImplConfig().getSuffix();
-        this.daoImplPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getDaoImplConfig().getPackageName());
+        this.daoImplPackage = PathUtils.buildPackage(daoImplBasePackage, generatorConfig.getDaoImplConfig().getPackageName());
 
+        String serviceBasePackage = generatorConfig.getServiceConfig().getBasePackage();
+        if (serviceBasePackage == null || serviceBasePackage.length() == 0) {
+            serviceBasePackage = generatorConfig.getBasePackage();
+        }
         this.serviceName = baseName + generatorConfig.getServiceConfig().getSuffix();
-        this.servicePackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getServiceConfig().getPackageName());
+        this.servicePackage = PathUtils.buildPackage(serviceBasePackage, generatorConfig.getServiceConfig().getPackageName());
 
+        String serviceImplBasePackage = generatorConfig.getServiceImplConfig().getBasePackage();
+        if (serviceImplBasePackage == null || serviceImplBasePackage.length() == 0) {
+            serviceImplBasePackage = serviceBasePackage;
+        }
         this.serviceImplName = baseName + generatorConfig.getServiceImplConfig().getSuffix();
-        this.serviceImplPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getServiceImplConfig().getPackageName());
+        this.serviceImplPackage = PathUtils.buildPackage(serviceImplBasePackage, generatorConfig.getServiceImplConfig().getPackageName());
 
+        String actionBasePackage = generatorConfig.getActionConfig().getBasePackage();
+        if (actionBasePackage == null || actionBasePackage.length() == 0) {
+            actionBasePackage = generatorConfig.getBasePackage();
+        }
         this.actionName = baseName + generatorConfig.getActionConfig().getSuffix();
-        this.actionPackage = PathUtils.buildPackage(generatorConfig.getBasePackage(), generatorConfig.getActionConfig().getPackageName());
+        this.actionPackage = PathUtils.buildPackage(actionBasePackage, generatorConfig.getActionConfig().getPackageName());
     }
 
     public boolean hasId() {

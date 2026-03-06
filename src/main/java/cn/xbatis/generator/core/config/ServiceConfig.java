@@ -44,6 +44,19 @@ public class ServiceConfig {
      */
     private String suffix = "Service";
 
+    private String basePackage;
+
+    /**
+     * 设置 基础包路径
+     *
+     * @param basePackage
+     * @return
+     */
+    public ServiceConfig basePackage(String basePackage) {
+        this.basePackage = basePackage;
+        return this;
+    }
+
     /**
      * service接口父类
      */

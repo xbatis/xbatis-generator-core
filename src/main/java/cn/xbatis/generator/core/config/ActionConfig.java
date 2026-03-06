@@ -122,6 +122,19 @@ public class ActionConfig {
      */
     private boolean swagger = false;
 
+    private String basePackage;
+
+    /**
+     * 设置 基础包路径
+     *
+     * @param basePackage
+     * @return
+     */
+    public ActionConfig basePackage(String basePackage) {
+        this.basePackage = basePackage;
+        return this;
+    }
+
     /**
      * 设置是否启用
      */

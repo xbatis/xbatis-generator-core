@@ -121,6 +121,22 @@ public class EntityConfig {
      */
     private String suffix = "";
 
+    /**
+     * 根包路径
+     */
+    private String basePackage;
+
+    /**
+     * 设置 基础包路径
+     *
+     * @param basePackage
+     * @return
+     */
+    public EntityConfig basePackage(String basePackage) {
+        this.basePackage = basePackage;
+        return this;
+    }
+
     private boolean alwaysAnnotation;
 
     {
