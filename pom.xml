@@ -19,8 +19,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.xbatis</groupId>
-        <artifactId>xbatis</artifactId>
-        <version>1.9.8</version>
+        <artifactId>xbatis-parent</artifactId>
+        <version>1.9.9-M1</version>
     </parent>
 
     <name>xbatis-generator-core</name>
@@ -59,48 +59,10 @@
         </developer>
     </developers>
 
-    <properties>
-        <freemarker.version>2.3.34</freemarker.version>
-        <solon.version>3.3.1</solon.version>
-        <swagger2.version>3.0.0</swagger2.version>
-        <swagger3.version>2.2.30</swagger3.version>
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.noear</groupId>
-                <artifactId>solon</artifactId>
-                <version>${solon.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${swagger2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger.core.v3</groupId>
-                <artifactId>swagger-jaxrs2</artifactId>
-                <version>${swagger3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger.core.v3</groupId>
-                <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
-                <version>${swagger3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.freemarker</groupId>
-                <artifactId>freemarker</artifactId>
-                <version>${freemarker.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>cn.xbatis</groupId>
             <artifactId>xbatis-core</artifactId>
-            <version>${xbatis.version}</version>
         </dependency>
 
         <dependency>
@@ -152,12 +114,6 @@
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.36</version>
             <optional>true</optional>
         </dependency>
 
@@ -171,14 +127,12 @@
             <groupId>com.oracle.database.jdbc</groupId>
             <artifactId>ojdbc8</artifactId>
             <scope>test</scope>
-            <version>${oracle.version}</version>
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>${sql_server.version}</version>
             <optional>true</optional>
             <scope>test</scope>
         </dependency>
@@ -186,7 +140,6 @@
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
-            <version>4.0.3</version>
             <optional>true</optional>
             <scope>test</scope>
         </dependency>
@@ -194,7 +147,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>5.3.39</version>
             <optional>true</optional>
             <scope>test</scope>
         </dependency>
