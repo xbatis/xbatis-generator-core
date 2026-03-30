@@ -14,6 +14,7 @@ import ${pkg};
  */
 @${repositoryAnnotationName}
 public class ${entityInfo.buildDaoImplClassFullName(daoConfig , daoImplConfig)} {
+<#if daoImplConfig.isInjectMapper()>
 
 <#if containerType.is("solon")>
     @${autowiredAnnotationName}
@@ -39,8 +40,10 @@ public class ${entityInfo.buildDaoImplClassFullName(daoConfig , daoImplConfig)} 
         return (${entityInfo.mapperName}) this.mapper;
     }
 </#if>
+</#if>
 
 <#if entityInfo.hasMultiId()>
+    <#if mapperConfig.isEnable()>
     @Override
     public ${entityInfo.name} getById(<#list entityInfo.idFieldInfoList as field>${field.typeName} ${field.name}<#if field_has_next>, </#if></#list>){
         return getMapper().getById(<#list entityInfo.idFieldInfoList as field>${field.name}<#if field_has_next>, </#if></#list>);
@@ -49,5 +52,15 @@ public class ${entityInfo.buildDaoImplClassFullName(daoConfig , daoImplConfig)} 
     protected int deleteById(<#list entityInfo.idFieldInfoList as field>${field.typeName} ${field.name}<#if field_has_next>, </#if></#list>){
         return getMapper().deleteById(<#list entityInfo.idFieldInfoList as field>${field.name}<#if field_has_next>, </#if></#list>);
     }
+    <#else>
+    @Override
+    public ${entityInfo.name} getById(<#list entityInfo.idFieldInfoList as field>${field.typeName} ${field.name}<#if field_has_next>, </#if></#list>){
+        return this.get(where -> where<#list entityInfo.idFieldInfoList as field>.eq(${entityInfo.name}::${field.getterMethodName()}, ${field.name})</#list>);
+    }
+
+    protected int deleteById(<#list entityInfo.idFieldInfoList as field>${field.typeName} ${field.name}<#if field_has_next>, </#if></#list>){
+        return this.delete(where -> where<#list entityInfo.idFieldInfoList as field>.eq(${entityInfo.name}::${field.getterMethodName()}, ${field.name})</#list>);
+    }
+    </#if>
 </#if>
 }

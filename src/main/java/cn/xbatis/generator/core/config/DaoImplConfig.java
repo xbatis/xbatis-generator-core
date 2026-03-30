@@ -40,6 +40,11 @@ public class DaoImplConfig {
      */
     private boolean enable = true;
 
+    /**
+     * 注入Mapper
+     */
+    private boolean injectMapper = false;
+
 
     private String basePackage;
 
@@ -88,6 +93,14 @@ public class DaoImplConfig {
      */
     public DaoImplConfig suffix(String suffix) {
         this.suffix = suffix;
+        return this;
+    }
+
+    /**
+     * 注入Mapper
+     */
+    public DaoImplConfig injectMapper(boolean injectMapper) {
+        this.injectMapper = injectMapper;
         return this;
     }
 }
