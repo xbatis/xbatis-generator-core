@@ -58,6 +58,17 @@ public class MapperXmlConfig {
     }
 
     /**
+     * 设置文件是否覆盖
+     *
+     * @param cover
+     * @return
+     */
+    public MapperXmlConfig fileCover(boolean cover) {
+        this.fileCover = cover;
+        return this;
+    }
+
+    /**
      * 生成resultMap
      */
     public MapperXmlConfig resultMap(boolean resultMap) {

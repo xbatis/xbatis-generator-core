@@ -86,6 +86,17 @@ public class DaoImplConfig {
     }
 
     /**
+     * 设置文件是否覆盖
+     *
+     * @param cover
+     * @return
+     */
+    public DaoImplConfig fileCover(boolean cover) {
+        this.fileCover = cover;
+        return this;
+    }
+
+    /**
      * dao实现类包名
      */
     public DaoImplConfig packageName(String packageName) {

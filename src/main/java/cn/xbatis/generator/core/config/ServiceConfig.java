@@ -87,6 +87,17 @@ public class ServiceConfig {
     }
 
     /**
+     * 设置文件是否覆盖
+     *
+     * @param cover
+     * @return
+     */
+    public ServiceConfig fileCover(boolean cover) {
+        this.fileCover = cover;
+        return this;
+    }
+
+    /**
      * 启用泛型
      */
     public ServiceConfig generic(boolean generic) {

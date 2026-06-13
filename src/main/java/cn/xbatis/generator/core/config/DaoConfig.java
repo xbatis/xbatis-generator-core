@@ -88,6 +88,17 @@ public class DaoConfig {
     }
 
     /**
+     * 设置文件是否覆盖
+     *
+     * @param cover
+     * @return
+     */
+    public DaoConfig fileCover(boolean cover) {
+        this.fileCover = cover;
+        return this;
+    }
+
+    /**
      * 启用泛型
      */
     public DaoConfig generic(boolean generic) {

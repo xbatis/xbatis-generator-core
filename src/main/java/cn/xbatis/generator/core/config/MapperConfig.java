@@ -71,6 +71,17 @@ public class MapperConfig {
         return this;
     }
 
+    /**
+     * 设置文件是否覆盖
+     *
+     * @param cover
+     * @return
+     */
+    public MapperConfig fileCover(boolean cover) {
+        this.fileCover = cover;
+        return this;
+    }
+
 
     /**
      * Mapper接口父类

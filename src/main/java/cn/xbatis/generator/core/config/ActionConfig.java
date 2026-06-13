@@ -149,6 +149,17 @@ public class ActionConfig {
     }
 
     /**
+     * 设置文件是否覆盖
+     *
+     * @param cover
+     * @return
+     */
+    public ActionConfig fileCover(boolean cover) {
+        this.fileCover = cover;
+        return this;
+    }
+
+    /**
      * 设置是否生成注释
      *
      * @param comment

@@ -174,6 +174,17 @@ public class EntityConfig {
     }
 
     /**
+     * 设置文件是否覆盖
+     *
+     * @param cover
+     * @return
+     */
+    public EntityConfig fileCover(boolean cover) {
+        this.fileCover = cover;
+        return this;
+    }
+
+    /**
      * 设置 基础包路径
      *
      * @param basePackage
