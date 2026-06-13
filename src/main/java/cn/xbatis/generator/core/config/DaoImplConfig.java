@@ -41,9 +41,14 @@ public class DaoImplConfig {
     private boolean enable = true;
 
     /**
+     * 文件覆盖
+     */
+    private Boolean fileCover;
+
+    /**
      * 注入Mapper
      */
-    private boolean injectMapper = false;
+    private boolean injectMapper = true;
 
 
     private String basePackage;

@@ -36,6 +36,14 @@ public class MapperXmlTemplateBuilder extends AbstractTemplateBuilder {
     }
 
     @Override
+    public boolean fileCover() {
+        if (this.generatorConfig.getMapperXmlConfig().getFileCover() != null) {
+            return this.generatorConfig.getMapperXmlConfig().getFileCover();
+        }
+        return super.fileCover();
+    }
+
+    @Override
     public String targetFilePath() {
         return PathUtils.buildFilePath(
                 generatorConfig.getBaseFilePath(),

@@ -26,6 +26,11 @@ public class MapperConfig {
     private boolean enable = true;
 
     /**
+     * 文件覆盖
+     */
+    private Boolean fileCover;
+
+    /**
      * Mapper接口父类
      */
     private String superClass = MybatisMapper.class.getName();

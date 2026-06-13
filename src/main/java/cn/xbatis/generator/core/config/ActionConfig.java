@@ -25,6 +25,11 @@ public class ActionConfig {
     private boolean enable = true;
 
     /**
+     * 文件覆盖
+     */
+    private Boolean fileCover;
+
+    /**
      * 是否开启注释
      */
     private boolean comment = true;

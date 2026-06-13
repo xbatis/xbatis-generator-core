@@ -37,6 +37,14 @@ public class ServiceImplTemplateBuilder extends AbstractTemplateBuilder {
     }
 
     @Override
+    public boolean fileCover() {
+        if (this.generatorConfig.getServiceImplConfig().getFileCover() != null) {
+            return this.generatorConfig.getServiceImplConfig().getFileCover();
+        }
+        return super.fileCover();
+    }
+
+    @Override
     public String targetFilePath() {
         return PathUtils.buildFilePath(
                 generatorConfig.getBaseFilePath(),

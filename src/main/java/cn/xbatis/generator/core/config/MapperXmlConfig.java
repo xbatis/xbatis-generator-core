@@ -25,6 +25,11 @@ public class MapperXmlConfig {
     private boolean enable = false;
 
     /**
+     * 文件覆盖
+     */
+    private Boolean fileCover;
+
+    /**
      * 生成resultMap
      */
     private boolean resultMap = false;

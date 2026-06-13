@@ -37,6 +37,14 @@ public class DaoTemplateBuilder extends AbstractTemplateBuilder {
     }
 
     @Override
+    public boolean fileCover() {
+        if (this.generatorConfig.getDaoConfig().getFileCover() != null) {
+            return this.generatorConfig.getDaoConfig().getFileCover();
+        }
+        return super.fileCover();
+    }
+
+    @Override
     public String targetFilePath() {
         return PathUtils.buildFilePath(
                 generatorConfig.getBaseFilePath(),

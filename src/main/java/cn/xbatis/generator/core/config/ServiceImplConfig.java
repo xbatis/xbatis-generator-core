@@ -26,6 +26,11 @@ public class ServiceImplConfig {
     private boolean enable = true;
 
     /**
+     * 文件覆盖
+     */
+    private Boolean fileCover;
+
+    /**
      * 启用泛型
      */
     private boolean generic = false;

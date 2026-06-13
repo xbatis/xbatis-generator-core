@@ -30,7 +30,10 @@ public abstract class AbstractTemplateBuilder implements ITemplateBuilder {
 
     @Override
     public boolean fileCover() {
-        return this.generatorConfig.isFileCover();
+        if (this.generatorConfig.getFileCover() != null) {
+            return this.generatorConfig.getFileCover();
+        }
+        return false;
     }
 
     @Override

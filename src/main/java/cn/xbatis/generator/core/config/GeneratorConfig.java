@@ -125,7 +125,7 @@ public class GeneratorConfig {
     /**
      * 文件覆盖
      */
-    private boolean fileCover = true;
+    private Boolean fileCover;
 
     /**
      * 模板引擎

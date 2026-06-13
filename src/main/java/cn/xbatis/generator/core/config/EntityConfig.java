@@ -27,7 +27,10 @@ import java.util.function.Function;
 
 @Getter
 public class EntityConfig {
-
+    /**
+     * 文件覆盖
+     */
+    private Boolean fileCover;
     /**
      * 排除列
      */

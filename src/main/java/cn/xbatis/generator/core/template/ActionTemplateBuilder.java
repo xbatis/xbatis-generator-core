@@ -37,6 +37,14 @@ public class ActionTemplateBuilder extends AbstractTemplateBuilder {
     }
 
     @Override
+    public boolean fileCover() {
+        if (this.generatorConfig.getActionConfig().getFileCover() != null) {
+            return this.generatorConfig.getActionConfig().getFileCover();
+        }
+        return super.fileCover();
+    }
+
+    @Override
     public String targetFilePath() {
         return PathUtils.buildFilePath(
                 generatorConfig.getBaseFilePath(),

@@ -32,8 +32,15 @@ public class EntityTemplateBuilder extends AbstractTemplateBuilder {
     }
 
     @Override
-    public String targetFilePath() {
+    public boolean fileCover() {
+        if (this.generatorConfig.getEntityConfig().getFileCover() != null) {
+            return this.generatorConfig.getEntityConfig().getFileCover();
+        }
+        return super.fileCover();
+    }
 
+    @Override
+    public String targetFilePath() {
         return PathUtils.buildFilePath(
                 generatorConfig.getBaseFilePath(),
                 generatorConfig.getJavaPath(),
