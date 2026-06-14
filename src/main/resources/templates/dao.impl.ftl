@@ -30,7 +30,6 @@ public class ${entityInfo.buildDaoImplClassFullName(daoConfig , daoImplConfig)} 
         return this.${util.firstToLower(entityInfo.mapperName)};
     }
 <#else>
-    @${autowiredAnnotationName}
     public ${entityInfo.daoImplName} (${entityInfo.mapperName} ${util.firstToLower(entityInfo.mapperName)}){
         super(${util.firstToLower(entityInfo.mapperName)});
     }
