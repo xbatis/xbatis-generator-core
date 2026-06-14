@@ -210,7 +210,7 @@ public class Test {
 
     public static void main(String[] args) {
         Long start = System.currentTimeMillis();
-        sqlserverTest();
+        h2Test();
         //oracleTest();
         System.out.println(System.currentTimeMillis() - start);
     }
