@@ -247,7 +247,6 @@ public class GeneratorUtil {
 
         if (generatorConfig.getContainerType() == ContainerType.SPRING) {
             classList.add("org.springframework.stereotype.Repository");
-            classList.add("org.springframework.beans.factory.annotation.Autowired");
             data.put("repositoryAnnotationName", "Repository");
             data.put("autowiredAnnotationName", "Autowired");
         } else if (generatorConfig.getContainerType() == ContainerType.SOLON) {
